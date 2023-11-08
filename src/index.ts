@@ -1,3 +1,10 @@
 export { sayHello, sayGoodbye } from './hello-world'
-export { module1Hello, module1Goodbye } from './module1/mod1_src'
-export { module2Hello, module2Goodbye } from './module2/mod2_src'
+// Export Funcs
+export { funcsGoodbye, funcsHello } from './functions/funcs'
+// Export statics
+export { StaticString, StaticMap, StaticNum } from './variables/mod2_src'
+export { intoKeyExpr } from './variables/mod2_src'
+
+// 
+// export { Module } from './variables/mod2_src'
+

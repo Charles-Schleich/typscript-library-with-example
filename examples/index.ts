@@ -1,6 +1,8 @@
 import { sayGoodbye, sayHello } from 'ts-library';
-import { module1Goodbye, module1Hello } from 'ts-library';
-import { module2Goodbye, module2Hello } from 'ts-library';
+import { funcsGoodbye, funcsHello } from 'ts-library';
+import { StaticMap,StaticNum,StaticString } from 'ts-library';
+// import { Module } from 'ts-library';
+
 
 async function main() {
     console.log("Hello World")
@@ -8,12 +10,16 @@ async function main() {
     sayGoodbye();
 
     console.log("")
-    module1Goodbye(); 
-    module1Hello();
+    funcsGoodbye();
+    funcsHello();
 
     console.log("")
-    module2Goodbye(); 
-    module2Hello();
+    console.log("   ",StaticMap)
+    console.log("   ",StaticNum)
+    console.log("   ",StaticString)
+
+    // console.log(Module.innermodule_fn1());
+
 }
 
 main().then(() => console.log("Done")).catch(e => { throw e })
