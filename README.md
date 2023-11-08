@@ -9,7 +9,7 @@ The library copies its `package.json` stripping
 Terminal 1, project root `/`:  
 `npm run build`
 
-Terminal 2:  
+Terminal 2, from `/examples`:  
 `npm run build`  
 then    
 `npm run start`  
