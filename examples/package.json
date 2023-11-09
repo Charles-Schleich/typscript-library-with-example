@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install & npx tsc",
-    "start": "node example-out/index.js"
+    "start": "node example-out/index.js",
+    "clean": "rm -rf node_modules"
   },
   "keywords": [],
   "author": "",

@@ -1,3 +1,8 @@
 *node_modules*
 *dist*
 *examples/example-out/*
+
+# Ignore emcc generated file
+c-to-wasm/**/*.wasm
+c-to-wasm/**/*.html
+c-to-wasm/**/*.js
