@@ -6,8 +6,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "clean": "rm -rf dist",
+    "build:ts": "npx tsc",
+    "build:wasm": "cd ./src/c-to-wasm/func && emcc  -o func.js func.c -s NO_EXIT_RUNTIME=1 -sWASM=0 -s EXPORTED_FUNCTIONS=_fib -s 'EXPORTED_RUNTIME_METHODS=[\"ccall\", \"cwrap\"]'",
+    "build": "npm run build:wasm && npm run build:ts",
+    
+    "clean": "rm -rf dist && rm -f ./src/c-to-wasm/func/*.js ./src/c-to-wasm/func/*.wasm",
+    "prebuildpackage_copy": "node dist/PackageDist.js",
     "prebuildpackage": "npm run clean && npm run build && node dist/PackageDist.js"
   },
   "keywords": [],
@@ -19,7 +23,9 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.9.0",
+    "fs-extra": "^11.1.1",
     "typescript": "^5.2.2"
   },
   "files": [

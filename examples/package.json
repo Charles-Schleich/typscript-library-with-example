@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install & npx tsc",
     "start": "node example-out/index.js",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf node_modules",
+    "serve": "python3 -m http.server 8000"
   },
   "keywords": [],
   "author": "",
