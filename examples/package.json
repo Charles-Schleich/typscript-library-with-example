@@ -16,7 +16,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "ts-library": "file:../dist"
+    "ts-library": "file:../"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
