@@ -29,7 +29,7 @@ interface Functions {
 
 var mod = Module;
 
-async function example() : Promise<Functions> {
+async function example(): Promise<Functions> {
     var functions: Functions = await new Promise((resolve, reject) => {
         mod.onRuntimeInitialized = () => {
             try {
@@ -42,8 +42,57 @@ async function example() : Promise<Functions> {
             }
         };
     });
-    return functions 
-  }
+    return functions
+}
 
 export { example };
 export { Module };
+
+// EXPERIMENT;
+export class TypeA {
+    name: String;
+    age: number;
+
+    // Internal, private ? 
+    // Call this function by invoking TypeA(name, age)
+    constructor(name: String, age: number) {
+        console.log("Inside TypeA::cnstructor() ")
+        this.name = name;
+        this.age = age;
+    }
+
+    // New calls the constructor
+    static async new(name: String, age: number): Promise<TypeA> {
+        console.log("Inside TypeA::New() ")
+        return new TypeA(name, age);
+    }
+}
+
+
+// export class KeyExpr implements IntoSelector {
+//     __ptr: number
+
+//     static registry: FinalizationRegistry<number> = new FinalizationRegistry((ptr: number) => (new KeyExpr(ptr)).delete());
+
+//     [intoKeyExpr](): Promise<KeyExpr> { return Promise.resolve(this) }
+//     // [intoSelector](): Promise<Selector> { return Promise.resolve(new Selector(this)) }
+
+//     constructor(ptr: number) {
+//         this.__ptr = ptr
+//         KeyExpr.registry.register(this, this.__ptr, this);
+//     }
+
+//     private async func1() {
+//         throws ""
+//     }
+
+//     static async new(keyexpr: string): Promise<KeyExpr> {
+//         throw "Unimplemented"
+//     }
+
+// }
+// export const intoMyType = Symbol("intoKeyExpr")
+
+// export interface IntoKeyExpr {
+//     [intoKeyExpr]: () => Promise<KeyExpr>
+// }

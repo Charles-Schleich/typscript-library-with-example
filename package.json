@@ -7,12 +7,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ts": "npx tsc",
-    "build:wasm": "cd ./src/c-to-wasm/func && emcc -lembind -o func.js func.c --embind-emit-tsd types -s NO_EXIT_RUNTIME=1 -sWASM=1 -s ERROR_ON_UNDEFINED_SYMBOLS=0 -s 'EXPORTED_RUNTIME_METHODS=[\"ccall\", \"cwrap\"]'",
-    "build:wasm_packaged": "cd ./src/c-to-wasm/func && emcc -lembind -o func.js func.c --embind-emit-tsd types -s NO_EXIT_RUNTIME=1 -sWASM=0 -s ERROR_ON_UNDEFINED_SYMBOLS=0",
+    
+    "build:wasm": "cd ./src/c-to-wasm/func && emcc -lembind -o func.js func.c --embind-emit-tsd types.d.ts -s NO_EXIT_RUNTIME=1 -sWASM=1 -s ERROR_ON_UNDEFINED_SYMBOLS=0 -s 'EXPORTED_RUNTIME_METHODS=[\"ccall\", \"cwrap\"]'",
+
+    "build:wasm_packaged": "cd ./src/c-to-wasm/func && emcc -lembind -o func.js func.c --embind-emit-tsd types.d.ts -s NO_EXIT_RUNTIME=1 -sWASM=0 -s ERROR_ON_UNDEFINED_SYMBOLS=0",
     "build:copy_wasm": "cpx -v \"src/**/*.wasm\" \"dist/\"",
     "build": "npm run build:wasm && npm run build:ts && npm run build:copy_wasm",
     "clean": "rm -rf dist && rm -f ./src/c-to-wasm/func/*.js ./src/c-to-wasm/func/*.wasm",
-    "prebuildpackage": "npm run clean && npm run build && npm run build:copy_wasm"
+    "clean_build_run": "npm run clean && npm run build && npm run build:copy_wasm"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +33,7 @@
     "fs-extra": "^11.1.1",
     "typescript": "^5.2.2"
   },
+  "type": "module",
   "files": [
     "/dist"
   ]

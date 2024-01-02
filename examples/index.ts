@@ -2,6 +2,7 @@
 // import { StaticMap, StaticNum, StaticString } from 'ts-library';
 // import { js_function, JS_NUM, JS_STRING } from 'ts-library';
 import { Module , example } from 'ts-library';
+import { TypeA } from 'ts-library';
 
 interface Functions {
     myFunction(): any;

@@ -23,3 +23,4 @@ EXTERN EMSCRIPTEN_KEEPALIVE int myFunction(int argc, char **argv)
     printf("MyFunction Called %d \n", click_count);
     return click_count;
 }
+
